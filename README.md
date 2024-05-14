@@ -1,6 +1,7 @@
-# POST METHOD
+# FLASK API
 Flask API integration with PostgreSQL database
 
+## POST METHOD
 The system integrates API into PostgreSQL database by POST method. 
 The objective is to register areas using information and geographic files for quantifying and auditing of these areas approved by the system.
 
