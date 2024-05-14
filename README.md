@@ -1,4 +1,4 @@
-# flask_api
+# POST METHOD
 Flask API integration with PostgreSQL database
 
 The system integrates API into PostgreSQL database by POST method. 
