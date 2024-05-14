@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Formulário de cadastro dos polígonos aprovados dos produtores
+    </title>
+    <style>
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .form-field {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .submit-button {
+            flex: 1;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>
+    Formulário de cadastro dos polígonos aprovados dos produtores
+</h2>
+<h3>
+    Select a file to upload
+</h3>
+<P>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-primary">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</P>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="form-field">
+            Fase : <br>
+            <input type="text" name="fase" value="" placeholder="Fase" list="fase_list" autocomplete="on" required><br>
+            <datalist id="fase_list">
+                <option value="Edital">Edital</option>
+                <option value="Piloto">Piloto</option>
+                <option value="Parceria">Parceria</option>
+            </datalist>
+        </div>
+        <div class="form-field">
+            Cooperativa : <br>
+            <input type="text" name="cooperativa" list="cooper_list" autocomplete="on" required>
+            <datalist id="cooper_list">
+                <option value="Cooper Vale">Araticum</option>
+                <option value="Cooper Cítrico">Bioflora</option>
+                <option value="Fazendona">Iniciativa Verde</option>
+            </datalist>
+            <!--</select><br>-->
+        </div>
+        <div class="form-field">
+            Código da cooperativa : <br>
+            <select name="cod_cooper" required>
+                <option value="101">101 - Cooper Vale</option>
+                <option value="102">102 - Cooper Cítrico</option>
+                <option value="103">103 - Fazendona</option>
+            </select><br>
+        </div>
+
+        <div class="form-field">
+            Proprietario : <br>
+            <input type="text" name="proprietario" value="" placeholder="Proprietario" required><br>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="form-field">
+            Área aprovada : <br>
+            <input type="text" name="area_aprov" value="" placeholder="Area Aprovada" required><br>
+        </div>
+        <div class="form-field">
+            Data de envio dos polígonos : <br>
+            <input type="date" name="dt_envio" value="" placeholder="Data de Envio" required><br>
+        </div>
+        <div class="form-field">
+            Nome recebido dos polígonos : <br>
+            <input type="text" name="nome_arqui" value="" placeholder="Nome do Arquivo" required><br>
+        </div>
+        <div class="form-field">
+            Data de análise dos polígonos : <br>
+            <input type="date" name="dt_analise" value="" placeholder="Data de Análise do Arquivo" required><br>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-field" style="flex: 2;">
+            <dl>
+                <p>
+                    <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+                </p>
+                <p>
+                    <input type="submit" value="Enviar">
+                </p>
+            </dl>
+        </div>
+    </div>
+</form>
+<style>
+    .alert-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+    }
+    .alert {
+        position: relative;
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    }
+</style>
+</body>
+</html>
